@@ -1,11 +1,11 @@
 # name of your application
-APPLICATION = network_test
+APPLICATION = socket_imp
 
 # If no BOARD is found in the environment, use this default:
 BOARD ?= native
 
 # This has to be the absolute path to the RIOT base directory:
-RIOTBASE ?= $(CURDIR)/../RIOT
+RIOTBASE ?= $(CURDIR)/../../RIOT
 
 # Set this to 1 to enable code in RIOT that does safety checking
 # which is not needed in a production environment but helps in the
@@ -19,11 +19,19 @@ DEVELHELP ?= 1
 USEMODULE += netdev_default 
 # Initialize the default devices specified by netdev_default
 USEMODULE += auto_init_gnrc_netif 
-# Pull in modules required by sixlowpan 
-# (neighbour info base for ipv6) and auto-init
-USEMODULE += gnrc_sixlowpan_default
 # Additional networking modules that can be dropped if not needed
 USEMODULE += gnrc_icmpv6_echo
+# USEMODULE += gnrc_icmpv6_error
+USEMODULE += gnrc_ipv6_default
+
+# These are the API's we need for sock API
+USEMODULE += gnrc_sock_ip
+# USEMODULE += gnrc_sock_tcp
+# USEMODULE += gnrc_sock_udp
+
+# USEMODULE += gnrc_netif_single FOR OPTIMISATION
+# USEMODULE += gnrc_sixloenc IF YOU WANT TO TEST 6loWPAN on Linux
+USEMODULE += core_debug
 
 USEMODULE += shell
 USEMODULE += shell_commands
