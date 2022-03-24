@@ -33,11 +33,15 @@ USEMODULE += auto_init_gnrc_netif
 # Additional networking modules that can be dropped if not needed
 USEMODULE += gnrc_ipv6
 USEMODULE += gnrc_icmpv6_echo
-
 # USEMODULE += gnrc_tcp
 # USEMODULE += gnrc_udp
+# USEMODULE += gnrc_ipv6_ext_frag
+
+USEMODULE += gnrc_nettype_udp
+USEMODULE += gnrc_nettype_tcp
 USEMODULE += gnrc_pktdump
-# USEMODULE += gnrc_nettype_ipv6
+
+USEMODULE += pktqueue
 
 USEMODULE += core_debug
 # USEMODULE += netutils

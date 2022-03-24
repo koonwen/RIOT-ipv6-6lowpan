@@ -24,10 +24,13 @@ USEMODULE += gnrc_icmpv6_echo
 # USEMODULE += gnrc_icmpv6_error
 USEMODULE += gnrc_ipv6_default
 
+USEMODULE += gnrc_pkt
 # These are the API's we need for sock API
 USEMODULE += gnrc_sock_ip
 # USEMODULE += gnrc_sock_tcp
 # USEMODULE += gnrc_sock_udp
+
+# USEMODULE += gnrc_ipv6_ext_frag
 
 # USEMODULE += gnrc_netif_single FOR OPTIMISATION
 # USEMODULE += gnrc_sixloenc IF YOU WANT TO TEST 6loWPAN on Linux

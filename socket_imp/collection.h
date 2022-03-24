@@ -13,13 +13,22 @@
 #include "shell.h"
 #include "sched.h"
 
-#define ENABLE_DEBUG 1
-#define TCP_EVENTLOOP_PRIO (THREAD_PRIORITY_MAIN - 2U)
-// ipv6_addr_t **address_buf;
+#define ENABLE_DEBUG (1)
+#define TCP_EVENTLOOP_PRIO (THREAD_PRIORITY_MAIN - 2)
+#define MIN_MTU (IPV6_MIN_MTU)
+
+extern sock_udp_ep_t udp_remote;
+extern sock_udp_ep_t udp_local;
+int get_mtu(int protocol);
+uint16_t getport(sock_udp_ep_t *endpoint);
 
 void print_and_set_addr(void);
 void *tcp_sock_thread(void *args);
 void *udp_sock_thread(void *args);
 void *ip_raw_sock_thread(void *args);
+
+int udp_cmd(int argc, char *argv[]);
+int print_local_dets(int argc, char *argv[]);
+int print_remote_dets(int argc, char *argv[]);
 
 #endif

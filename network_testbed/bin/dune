@@ -1,4 +1,4 @@
 (executable
- (public_name network_testbed)
+ (public_name main)
  (name main)
  (libraries network_testbed))

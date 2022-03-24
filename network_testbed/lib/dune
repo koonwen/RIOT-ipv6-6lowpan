@@ -1,3 +1,13 @@
 (library
  (name network_testbed)
- (libraries tcpip))
+ (foreign_stubs
+  (language c)
+  (names bindings))
+ (libraries tcpip cstruct ipaddr-cstruct bigarray)
+ (preprocess
+  (pps ppx_cstruct)))
+
+(env
+ (dev
+  (flags
+   (:standard -w -27-26-11-32))))
